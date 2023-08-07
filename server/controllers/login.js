@@ -1,10 +1,6 @@
 const passport = require("passport");
 const User = require("../models/user");
 
-const renderLogin = async (req, res) => {
-  res.render("login");
-};
-
 const logUser = (req, res) => {
   const user = new User({
     username: req.body.username,
@@ -16,10 +12,11 @@ const logUser = (req, res) => {
   req.login(user, (err) => {
     if (err) {
       console.log(err);
+      res.send(err);
     } else {
       passport.authenticate("local")(req, res, () => {
-        console.log(re.user);
-        res.redirect('/');
+        // console.log(req.user);
+        res.status(200).json({ path: "/", status: "Login successful" });
       });
     }
   });
@@ -27,6 +24,5 @@ const logUser = (req, res) => {
 
 
 module.exports = {
-  renderLogin,
-  logUser,
+  logUser
 };

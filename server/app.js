@@ -49,9 +49,7 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
-// app.post('/register',(req, res) => {
-//   console.log(req.body.username)
-// })
+
 
 
 app.use("/login", loginRouter);
@@ -60,7 +58,7 @@ app.use("/register", registerRouter);
 
 
 app.get("/", (req, res) => {
-  res.send("welcome to registration page");
+  res.send("welcome to ClosedCoo");
 });
 
 
