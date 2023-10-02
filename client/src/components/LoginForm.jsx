@@ -46,6 +46,11 @@ const LoginForm = () => {
     setPassword("");
   };
 
+  const handleGoogleSignIn = () => {
+    // Redirect to Google Sign In URL
+    window.location.href = "http://localhost:3000/auth/google";
+  };
+
   return (
     <div>
       <h2>Login to PrivateCoo</h2>
@@ -72,6 +77,11 @@ const LoginForm = () => {
         </div>
         <div>
           <button type="submit">Login</button>
+        </div>
+        <div>
+          <button type="button" onClick={handleGoogleSignIn}>
+            Google Sign In
+          </button>
         </div>
       </form>
     </div>

@@ -16,6 +16,10 @@ const logUser = (req, res) => {
     } else {
       passport.authenticate("local")(req, res, () => {
         // console.log(req.user);
+
+        // req.session.myVariable = 'Hello, this is stored in a session variable!';
+
+        console.log("it was login");
         res.status(200).json({ path: "/", status: "Login successful" });
       });
     }
